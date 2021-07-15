@@ -1,6 +1,6 @@
 # Actions-OpenWrt
 
-[![HC5962](https://github.com/hugoyue/OPENWRT/actions/workflows/hiwifi_hc5962.yml/badge.svg)](https://github.com/hugoyue/OPENWRT/actions/workflows/hiwifi_hc5962.yml) [![X86_64](https://github.com/hugoyue/OPENWRT/actions/workflows/x86_64.yml/badge.svg)](https://github.com/hugoyue/OPENWRT/actions/workflows/x86_64.yml) [![X86_64_EXT4](https://github.com/hugoyue/OPENWRT/actions/workflows/x86_64_ext4.yml/badge.svg)](https://github.com/hugoyue/OPENWRT/actions/workflows/x86_64_ext4.yml)
+[![HC5962](https://github.com/hugoyue/Auto_Build_OpenWrt/actions/workflows/hiwifi_hc5962.yml/badge.svg)](https://github.com/hugoyue/Auto_Build_OpenWrt/actions/workflows/hiwifi_hc5962.yml) [![X86_64](https://github.com/hugoyue/Auto_Build_OpenWrt/actions/workflows/x86_64.yml/badge.svg)](https://github.com/hugoyue/Auto_Build_OpenWrt/actions/workflows/x86_64.yml) [![X86_64_EXT4](https://github.com/hugoyue/Auto_Build_OpenWrt/actions/workflows/x86_64_ext4.yml/badge.svg)](https://github.com/hugoyue/Auto_Build_OpenWrt/actions/workflows/x86_64_ext4.yml)
 
 Auto Build OpenWrt for x86_64 （固件自动云编译）
 
