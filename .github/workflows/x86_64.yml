@@ -163,26 +163,21 @@ jobs:
         [ $UPLOAD_WETRANSFER = true ] && echo "🔗 [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
         echo "::set-output name=status::success"
 
-    - name: Push to WeChat & Telegram
-      if: steps.organize.outputs.status == 'success' && !cancelled()
+    - name: Push to WeiChat
+      if: steps.organize.outputs.status == 'success'  && env.WEIXIN_PUSH == 'true' && !cancelled()
       run: |
-            [ $WEIXIN_PUSH = true ] && curl -H "Content-Type: application/json" -X POST -d 
-            '{"token":"${{ secrets.PUSHPLUS_TOKEN }}",
-            "title":"OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }} 固件编译成功！",
-            "content":"我亲爱的✨主人✨：</br>
-            您的 OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }} 固件编译一切顺利！</br>
-            🎉🎉🎉🎉🎉🎉🎉🎉🎉</br>
-            下载地址：</br> 
-            🇨🇳 国内下载 || ${{ steps.cowtransfer.outputs.url }} </br>
-            🇺🇸 国外下载 || ${{ steps.wetransfer.outputs.url }} </br>
-            😄😄😄 快去下载更新吧！","template":"html"}' http://pushplus.hxtrip.com/send
-            [ $TELEGRAM_BOT = true ] && curl -k --data chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" --data "text=我亲爱的✨主人✨：
+            curl -H "Content-Type: application/json" -X POST -d '{"token":"${{ secrets.PUSHPLUS_TOKEN }}","title":"OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }} 固件编译成功！","content":"我亲爱的✨主人✨：</br>您的 OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }} 固件编译一切顺利！</br>🎉🎉🎉🎉🎉🎉🎉🎉🎉</br>下载地址：</br> 🇨🇳 国内下载 ||【Cowtransfer】(${{ steps.cowtransfer.outputs.url }}) </br>🇺🇸 国外下载 ||【WeTransfer】(${{ steps.wetransfer.outputs.url }}) </br>😄😄😄 快去下载更新吧！","template":"html"}' http://pushplus.hxtrip.com/send        
+            
+    - name: Push to Telegram
+      if: steps.organize.outputs.status == 'success'  && env.TELEGRAM_BOT == 'true' && !cancelled()
+      run: |
+            curl -k --data chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" --data "text=我亲爱的✨主人✨：
             您的 OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }} 固件编译一切顺利！
             🎉🎉🎉🎉🎉🎉🎉🎉🎉
             下载地址：
-            🇨🇳 国内下载 || ${{ steps.cowtransfer.outputs.url }}
-            🇺🇸 国外下载 || ${{ steps.wetransfer.outputs.url }}
-            😄😄😄 快去下载更新吧！" "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" 
+            🇨🇳 国内下载 ||【Cowtransfer】(${{ steps.cowtransfer.outputs.url }}) 
+            🇺🇸 国外下载 ||【WeTransfer】(${{ steps.wetransfer.outputs.url }}) 
+            😄😄😄 快去下载更新吧！" "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage"
         
     - name: Upload firmware to release
       uses: softprops/action-gh-release@v1
