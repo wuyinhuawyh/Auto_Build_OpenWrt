@@ -19,7 +19,6 @@
 cat >> feeds.conf.default <<EOF
 src-git kenzo https://github.com/kenzok8/openwrt-packages
 src-git small https://github.com/kenzok8/small 
-src-git nas https://github.com/linkease/nas-packages.git;master
 EOF
 
 
