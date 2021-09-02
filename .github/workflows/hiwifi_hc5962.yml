@@ -158,7 +158,6 @@ jobs:
             您的 OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }} 固件编译一切顺利！
             🎉🎉🎉🎉🎉🎉🎉🎉🎉
             下载地址：
-            🇨🇳 国内下载 ||【Cowtransfer】(${{ steps.cowtransfer.outputs.url }}) 
             🇺🇸 国外下载 ||【WeTransfer】(${{ steps.wetransfer.outputs.url }}) 
             😄😄😄 快去下载更新吧！" "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage"
 
