@@ -1,4 +1,4 @@
-# Actions-OpenWrt
+# Actions-OpenWrt  目前b70固件使用中
 
 [![HC5962](https://github.com/hugoyue/Auto_Build_OpenWrt/actions/workflows/hiwifi_hc5962.yml/badge.svg)](https://github.com/hugoyue/Auto_Build_OpenWrt/actions/workflows/hiwifi_hc5962.yml) [![X86_64](https://github.com/hugoyue/Auto_Build_OpenWrt/actions/workflows/x86_64.yml/badge.svg)](https://github.com/hugoyue/Auto_Build_OpenWrt/actions/workflows/x86_64.yml)
 
